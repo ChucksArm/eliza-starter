@@ -4,7 +4,17 @@ FROM node:23.3.0-slim AS builder
 # Install pnpm globally and install necessary build tools
 RUN npm install -g pnpm@9.15.1 && \
     apt-get update && \
-    apt-get install -y git python3 make g++ && \
+    apt-get install -y \
+    git \
+    python3 \
+    make \
+    g++ \
+    pkg-config \
+    libcairo2-dev \
+    libpango1.0-dev \
+    libgif-dev \
+    libopus-dev \
+    build-essential && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
